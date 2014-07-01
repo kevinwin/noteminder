@@ -1,0 +1,3 @@
+class NotesController < ApplicationRecord
+
+end
