@@ -1,0 +1,69 @@
+# Spaced Repetition learning app
+#### By Kevin Nguyen, June 26, 2014
+
+## Description
+
+I want to build an application that makes learning more effective, easy, and fun.
+I want to have notes that come back to me when I need to review them the most before that information disappears from my short-term memory.
+I want these notes to be easily accessible
+& I want to be able to see these notes wherever I am.
+I don't want to have to think about when I need to study. I just want to focus on studying what I want to learn when I need to learn it.	
+
+
+## Features
+
+1. Note creation (Flashcard style, plain text, test mode for the testing effect)
+2. Account signup process only needed for extra features.  Email and phone numbers act as iDs
+3. Text messages/emails w/ your note (note reminder) are sent automatically based on a Spaced repetition algorithm
+4. supports font styles for code (monospace) & special characters (chinese, vietnamese tone symbols)
+5. Open source and free.
+6. Possible addition for future iteration: context-sensitive learning algorithm (detects location and balances learning load) could also generate a visual/audio cue that acts as a signal to learn.
+7. (could support visual memes ---not sure if I should keep it simpler and more basic)
+8. (Supports short testing sessions)
+9 (Could support calendar synchronisation and Do Not Disturb windows where no emails or texts are esent)
+10. Does not support shared decks...at least in the first few reps (learning should be personalized and active)
+
+
+Useful for learning just about anything
+computer language syntax
+natural languages --- Korean, Chinese, Spanish, Afrikaans, Russian
+other school stuff
+
+
+Personal context
+
+At school, I tend to study harder and longer than I need to even when I've done enough work. Especially right before exams. I'll generally review my notes again and again when I could be spending time with friends or doing something else that's fun. It's like reviewing things you'd actually remember without actually needing to review it. I guess It's the workaholic in me. 
+
+It's also about not forgetting material. On average, 70% of students forget what was taught in a 1 hour class within 24 hours.
+
+I think technology could definitely help. The app I have in mind would allow you to create a note, something you want to learn and it would send you a text/email when you need to review the material only when you need to review it --- which is right before you forget it based on a spaced repetition algorithm. Effectively serves as a tag for your brain that this is something important to remember. The goal is to focus on what you want to learn/retain, not on when you should study.
+
+
+Psychology of Study by Prof. C. A. Mace in 1932 (6th graders)
+
+==================================================================
+
+# Create a note
+1. User visits the site.
+2. They input their email/phone unless it's already been saved as an account and they have auto sign-in
+3. User clicks on a simple flashcard and types whatever they want to remember/learn. Users with official accounts can organize their notes into decks by clicking a dropdown.
+4. User clicks 'Create' button
+
+Official accounts have access to a dashboard with more advanced functions (context, visual memes, both phone and text reminders, analytics, opens new tab); Basic accounts have the ability to see all their notes and organize them into decks and can set no-interrupt times.
+
+# reviewing a recalled note
+1. User receives an email/text notifying them that their note is ready for review. After a note is created, it's sent to the user immediately
+2. User can see the full text of their note in their email.
+3. User marks their recall ability on a scale of 1-5 (5 being super easy to recall, 1 being no recall)
+4. Algorithm records their rating and sends them the information at an appropriate time.
+
+# Basic account creation
+1. User creates note with new phone/email
+2. If the phone / email is not in the database, it's added temporarily.
+3. User confirmation link is set via text / Email
+
+
+Spend less time thinking about logistics
+Study
+
+Reduce overload, lea
