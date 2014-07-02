@@ -1,9 +1,11 @@
-class NotesController < ApplicationRecord
+class NotesController < ApplicationController
 
 	def index
+		@notes = Note.all
 	end
 
 	def new
+		@note = Note.new
 	end
 
 	def edit
@@ -13,6 +15,7 @@ class NotesController < ApplicationRecord
 	end
 
 	def create
+		
 	end
 
 end

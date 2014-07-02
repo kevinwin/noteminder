@@ -1,0 +1,8 @@
+Here are all the users
+
+<% @users.each do |user| %>
+	<br>
+	<%= user.email %><br>
+<%end%>
+<br>
+<%= link_to 'Go to the Create page', "http://localhost:3000/users/new" %>
