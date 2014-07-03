@@ -4,8 +4,17 @@
  <%= form_for @user, :url => {:action => "create"} do |f|  %> 
  	<%=f.label "Email"%>
  	<%=f.text_field :email %> <br>
- 	<%=f.submit "Create"%>
+ 	<br>
 
-<% end %>
+
+ 	<%=f.fields_for :decks do |builder| %>
+		<%= render 'decks_fields', f: builder %>
+	<%end%>
+ 	<%=f.submit "Create"%>
+ 	<br>
+<%end%>
+
+
+
 
 
