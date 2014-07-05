@@ -27,7 +27,7 @@ class DecksController < ApplicationController
 	private
 
 	def deck_params
-			params.require(:deck).permit(:title, notes_attributes: [:question, :answer])
+			params.require(:deck).permit(:title)
 	end
 
 end

@@ -1,0 +1,9 @@
+<h1>Noteminder Decks</h1>
+
+
+<%= form_for @deck do |f|  %> 
+	<%= f.label :title %>
+	<%= f.text_area :title %>
+	<br>
+	<%= f.submit %>
+<%end%>

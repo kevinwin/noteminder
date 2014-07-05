@@ -1,0 +1,12 @@
+ 	<br>
+
+ 	<%=f.fields_for :decks do |builder| %>
+		<%= builder.label :title, "Deck title"%> 
+		<%= builder.text_field :title %> <br><br>
+		<%= builder.fields_for :notes do |side_builder| %> 
+			<%= side_builder.label :question, "Question" %>  
+			<%= side_builder.text_area :question %><br>	
+			<%= side_builder.label :answer, "Answer" %>  
+			<%= side_builder.text_area :answer %><br>
+		<%end%> 
+	<%end%>

@@ -1,0 +1,13 @@
+<h1>Noteminder Notes</h1>
+
+
+<%= form_for @note do |f|  %> 
+	<%= f.label :question %>
+	<%= f.text_area :question %>
+	<br>
+	<%= f.label :answer %>
+	<%= f.text_area :answer %> 
+	<br><br>
+	
+	<%= f.submit %>
+<%end%>

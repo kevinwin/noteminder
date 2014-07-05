@@ -1,17 +1,26 @@
 source 'https://rubygems.org'
 
+
+group :development do
+	gem 'better_errors'
+	gem 'jazz_hands'
+	gem 'quiet_assets'
+	gem 'puma'
+end
+
+gem 'devise'
+
 gem 'paperclip'
 
 gem 'tworgy-spaced-repetition'
 
-gem 'better_errors'
+
 
 gem 'binding_of_caller'
 
 # Twitter bootstrap (useful for Media queries + Javascript)
 gem 'bootstrap-sass'
-
-gem 'pry'
+	
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record

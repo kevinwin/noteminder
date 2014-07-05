@@ -4,9 +4,14 @@ Here are all the users
 	<br>
 	<%= user.email %><br>
 	<% user.decks.each do |deck| %>
-	<%= deck.title%> 
+		<%= deck.title%> 
+		<% deck.notes.each do |note| %>
+			<%= note.question %>
+			<%= note.answer %>	
+		<%end%>
 	<%end%>
-	
 <%end%>
 <br>
-<%= link_to 'Go to the Create page', "http://localhost:3000/users/new" %>
+<%= link_to 'Create a new note.', "/notes/new" %>
+<br>
+<%= link_to 'Create a new deck.', "/decks/new" %>

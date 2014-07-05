@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :users, :only => [:index, :create, :destroy, :edit, :new]
   resources :decks, :only => [:create, :index, :destroy, :edit, :new]
   resources :notes, :only => [:create, :index, :destroy, :edit, :new]
