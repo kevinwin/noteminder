@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# gem needed for Heroku deployment	
+gem 'rails_12factor', group: :production
+
 gem 'nested_form'
 
 group :development do
@@ -15,6 +18,10 @@ gem 'paperclip'
 
 gem 'tworgy-spaced-repetition'
 
+gem 'tzinfo-data'
+
+gem 'tzinfo'
+
 gem 'autoprefixer-rails'
 
 gem 'binding_of_caller'
@@ -25,7 +32,11 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+
+#Postgres gem for heroku
+gem 'pg', group: :production
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

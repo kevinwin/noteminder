@@ -12,6 +12,10 @@ class NotesController < ApplicationController
 		# @user.decks.each {|deck| deck.notes.build}
 	end
 
+	def show
+		@note = Note.find(params[:id])
+	end
+
 	def edit
 		@note = Note.find(params[:id])
 	end
@@ -36,18 +40,6 @@ class NotesController < ApplicationController
 
 			end
 
-				# @note.update_attributes(:)
-			# end
-
-			
-			
-			
-		# # 	decks = params[:decks]
-		# # decks.each_with_index do |deck, index|	
-		# # 	deck = Deck.create :title => deck
-		# # 	Note.create :deck_id => deck.id
-		# end
-
 		if @note.save
 			redirect_to notes_path, :alert => "Your note was successfully created."
 		else
@@ -64,7 +56,7 @@ class NotesController < ApplicationController
 	end
 
 	def set_deck
-		@decks = Deck.all
+		@decks = Deck.where(:user_id => current_user.id)
 	end
 
 

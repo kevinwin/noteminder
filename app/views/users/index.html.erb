@@ -1,4 +1,4 @@
-<h1>NoteMinder</h1>
+<h1>NoteMinders</h1>
 Here are all the users
 
 <% @users.each do |user| %>
@@ -8,3 +8,12 @@ Here are all the users
 <%end%>
 <br>
 <%= link_to 'Create a new note.', "/notes/new" %>
+<br>
+<br>
+<div class="footer">
+		<% if user_signed_in? %>
+			<%= link_to 'Sign out.', destroy_user_session_path, :method => :delete %>
+		<% else %>
+			<%= link_to 'Sign in.', new_user_session_path %>
+		<% end %>
+	</div>

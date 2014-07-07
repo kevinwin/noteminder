@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for creating a note, <%= @user.email %>!</h1>
+    <p>Check out your note below to confirm everything's all right (if you'd like). Let Noteminders take care of the rest.</p>
+
+    	<%= link_to 'View your note', note_url(@note) %>
+  </body>
+</html>
