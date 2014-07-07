@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 			redirect_to users_path
 		else
 			render 'new'
-		end
+		end	
 	end
 
 	private

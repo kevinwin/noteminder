@@ -1,0 +1,9 @@
+<h1>Hi.</h1>
+<p> Here's a list of all your decks</p>
+<br>
+
+<% @decks.each do |deck| %>
+	<%= deck.title %><br>
+<%end%>
+<br>
+<%= link_to 'Create a new note.', "/notes/new" %>

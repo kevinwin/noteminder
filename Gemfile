@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'nested_form'
 
 group :development do
 	gem 'better_errors'
@@ -14,7 +15,7 @@ gem 'paperclip'
 
 gem 'tworgy-spaced-repetition'
 
-
+gem 'autoprefixer-rails'
 
 gem 'binding_of_caller'
 
