@@ -1,0 +1,45 @@
+= Spaced Repetition 
+
+Ruby gem that implements the SM-2 algorithm of SuperMemo. See http://www.supermemo.com/english/ol/sm2.htm for more details.
+
+The plan is to add more algorithms in the future, e.g. Mnemosyne.
+
+== Install
+
+  gem install tworgy-spaced-repetition
+  
+== Usage
+
+The gem provides a mixin which should be added to a class that represents something you want to remember, e.g. a flash card class. The mixin adds several methods (described below) to calculate the date when the next repetition should occur.  
+
+Importantly, the mixin depends on several methods existing on the hosting class.  The mixin should throw an exception if it cannot find the appropriate methods.
+
+  class FlashCardExample 
+    attr_accessor :easiness_factor, :number_repetitions, :quality_of_last_recall, :next_repetition     
+
+    include SuperMemo::SM2
+  end
+
+Create an instance of the object as per usual
+
+  fc = FlashCardExample.new
+
+Reset the data to begin with
+
+  fc.reset_spaced_repetition_data
+  fc.easiness_factor => 2.5  
+  fc.number_repetitions => 0  
+  fc.quality_of_last_recall => nil  
+  fc.next_repetition => Date.today  
+
+Calculate the next interval/date (Note: SM2 expects a number between 0-5)
+  
+  fc.process_recall_result(4)
+
+  fc.repetition_interval => 1 (day)
+  fc.next_repetition => tomorrow (Date.today + 1 day)
+
+== Notes
+
+Currently this gem only includes the SM-2 version of the SuperMemo algorithm. Although more recent versions of the SuperMemo algorithm exist, some popular open source and commercial alternatives to SuperMemo (such as Mnemosyne) base their algorithms on the SM-2 algorithm, as they judge it a superior algorithm to the more recent iterations.  The author of Mnemosyne (the leading open source alternative) makes the point that there is a conflict of interest underlying commercial products like SuperMemo, in that companies have a vested interest in claiming the newer algorithms are better regardless of whether they actually are.  
+

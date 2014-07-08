@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'dbc'
+
 # gem needed for Heroku deployment	
 gem 'rails_12factor', group: :production
 
 gem 'nested_form'
+
+gem 'rufus-scheduler'
 
 group :development do
 	gem 'better_errors'
@@ -21,8 +25,6 @@ gem 'tworgy-spaced-repetition'
 gem 'tzinfo-data'
 
 gem 'tzinfo'
-
-gem 'autoprefixer-rails'
 
 gem 'binding_of_caller'
 

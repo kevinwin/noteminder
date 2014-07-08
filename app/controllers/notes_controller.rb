@@ -52,7 +52,7 @@ class NotesController < ApplicationController
 	private
 
 	def note_params
-			params.require(:note).permit(:id, :question, :answer, :deck_id)
+			params.require(:note).permit(:id, :question, :answer, :deck_id, :easiness_factor, :number_repetitions, :quality_of_last_recall, :next_repetition, :repetition_interval, :last_studied)
 	end
 
 	def set_deck

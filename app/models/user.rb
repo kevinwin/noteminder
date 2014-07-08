@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :decks, :dependent => :destroy
+  validates :email, uniqueness: {case_sensitive: false}
 
 end
