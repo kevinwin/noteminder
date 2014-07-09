@@ -11,11 +11,11 @@ class SrsController < ApplicationController
     # if (@note.easiness_factor == nil && @note.number_repetitions == nil)
     #   @note.reset_spaced_repetition_data
     # end
-    
+
     # test without update_attributes method
     @note.update_attributes(:srs_update => params["note"]["srs_update"].to_i)
-    @note.process_recall_result(@note.srs_update)
-    puts @note.next_repetition
+    @note.process_srs(@note.srs_update)
+    @note.touch
   end
 
   private

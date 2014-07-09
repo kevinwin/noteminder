@@ -11,8 +11,48 @@ class Note < ActiveRecord::Base
   validates :question, uniqueness: {:scope => :deck_id}
   validates :answer, uniqueness: {:scope => :deck_id}
 	after_create :send_note_created_email
+  after_touch :send_noteminder
 
-	protected
+
+	
+
+    def process_srs(quality_of_recall)
+    DBC.require(quality_of_recall >= 0)
+    DBC.require(quality_of_recall <= 5)
+    DBC.require(easiness_factor)
+    DBC.require(number_repetitions)
+      
+    if quality_of_recall < 3
+      self.update_attributes(:number_repetitions => 0)
+      self.update_attributes(:repetition_interval => 0)
+    else
+      self.update_attributes(:easiness_factor => calculate_easiness_factor(easiness_factor, quality_of_recall))
+    
+      if quality_of_recall == 3
+        self.update_attributes(:repetition_interval => 0)
+      else
+        self.update_attributes(:number_repetitions => (self.number_repetitions+1))
+
+        case number_repetitions
+        when 1
+          self.update_attributes(:repetition_interval => 1)
+        when 2
+          self.update_attributes(:repetition_interval => 6)
+        else
+          self.update_attributes(:repetition_interval => self.repetition_interval * self.easiness_factor)
+        end
+      end
+    end
+    
+    self.update_attributes(:next_repetition => Date.today + self.repetition_interval)
+    self.update_attributes(:last_studied => Date.today)
+  end
+
+
+  protected
+
+
+
 
 	def send_note_created_email
     #resets the note's spaced repetition data
@@ -21,16 +61,18 @@ class Note < ActiveRecord::Base
     # Sends an initial email confirming that a note has been created
     UserNotifier.note_created_email(self).deliver
 
+  end
+
+  def send_noteminder
     # Initializes the scheduler
     scheduler = Rufus::Scheduler.new
 
-    
-
     #checks if note is scheduled to recall. If so, deliver the note.
-    scheduler.every '1m', :last_at => Time.now + 1 * 3600 do
+    scheduler.every '1m' do#, :last_at => Time.now + 1 * 3600 do
       if self.scheduled_to_recall?
-        UserNotifier.note_created_email(self).deliver
+        UserNotifier.noteminder(self).deliver
       end
-  	end
+    end
   end
+
 end

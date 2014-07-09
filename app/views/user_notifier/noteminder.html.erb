@@ -207,8 +207,8 @@ Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_
 	<![endif]-->
 </head>
 <body>
-	<h1>Thanks for creating a note bru!</h1>
-    <p>Check out your note below to confirm everything's all right (if you'd like). Let Noteminders take care of the rest.</p>
+	<h1>Hey!</h1>
+    <p>Check out your note below. Review it and give us feedback. We'll take care of the rest.</p>
 
     <div class="note">
 		<div class="deck">
@@ -246,23 +246,23 @@ Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_
 			<div style="text-align: center; vertical-align: middle; line-height: 5px;">
 				<%= form_for @note, :url => note_srs_url(@note), :method => :post do |f| %>
 					<%= f.radio_button :srs_update, 5 %>
-					<%= label :srs_update, "5 ★★★★★" %><br>
+					<%= label :srs_update, "5" %><br>
 					<%= f.radio_button :srs_update, 4 %>
-					<%= label :srs_update, "4 ★★★★☆" %><br>
+					<%= label :srs_update, "4" %><br>
 					<%= f.radio_button :srs_update, 3 %>
-					<%= label :srs_update, "3 ★★★☆☆" %><br>
+					<%= label :srs_update, "3" %><br>
 					<%= f.radio_button :srs_update, 2 %>
-					<%= label :srs_update, "2 ★★★☆☆" %><br>
+					<%= label :srs_update, "2" %><br>
 					<%= f.radio_button :srs_update, 1 %>
-					<%= label :srs_update, "1 ★☆☆☆☆" %><br>
+					<%= label :srs_update, "1" %><br>
 					<%= f.radio_button :srs_update, 0 %>
-					<%= label :srs_update, "0 ☆☆☆☆☆" %><br>
+					<%= label :srs_update, "0" %><br>
 					<%= f.submit "Submit" %>
 				<% end %>
 			</div>
 
 		<div class="Info">
-			<h3>What happens now</h3>
+			<h3>How easy was that?</h3>
 			<p>From this point on, you'll receive email/text notifications when you need to study your note. Just rate the note's easiness factor on a scale from 0-5 (5 being very easy to remember, 0 equals no recall) </p>
 		</div>
     </div>
