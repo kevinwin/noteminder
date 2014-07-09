@@ -27,7 +27,8 @@ class NotesController < ApplicationController
 
 	def create
 			@note = Note.new(note_params)
-			
+			# initializes note with default srs attributes
+			@note.update_attributes(:easiness_factor => 2.5, :number_repetitions => 0, :quality_of_last_recall => nil, :next_repetition => nil, :repetition_interval => nil, :last_studied => nil)
 			# # are they creating a new deck, or adding to a preexisting deck? 
 			# # create a new deck
 			if params["note"]["deck_id"] == nil
@@ -52,7 +53,7 @@ class NotesController < ApplicationController
 	private
 
 	def note_params
-			params.require(:note).permit(:id, :question, :answer, :deck_id, :easiness_factor, :number_repetitions, :quality_of_last_recall, :next_repetition, :repetition_interval, :last_studied)
+			params.require(:note).permit(:id, :question, :answer, :deck_id, :easiness_factor, :number_repetitions, :quality_of_last_recall, :next_repetition, :repetition_interval, :last_studied, :srs_update)
 	end
 
 	def set_deck

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708222504) do
+ActiveRecord::Schema.define(version: 20140709115808) do
 
   create_table "decks", force: true do |t|
     t.string   "title"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20140708222504) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "srs_update"
+    t.float    "easiness_factor"
+    t.integer  "number_repetitions"
+    t.integer  "quality_of_last_recall"
+    t.date     "next_repetition"
+    t.integer  "repetition_interval"
+    t.date     "last_studied"
   end
 
   create_table "users", force: true do |t|

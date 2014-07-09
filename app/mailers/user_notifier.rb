@@ -1,4 +1,5 @@
 class UserNotifier < ActionMailer::Base
+  add_template_helper(MailerHelper)
   default :from => 'legitkevinnguyen@gmail.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
@@ -17,3 +18,4 @@ class UserNotifier < ActionMailer::Base
     :subject => 'You just created a NoteMinder!' )
   end
 end
+

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :decks, :only => [:create, :index, :destroy, :edit, :new, :show]
   resources :notes, :only => [:create, :index, :destroy, :edit, :new, :show]
 
-  resources :srs, :only => [:index, :create]
+  resources :notes do
+    resources :srs, :only => [:index, :create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
+  
   #       post 'toggle'
   #     end
   #

@@ -5,9 +5,17 @@ class SrsController < ApplicationController
 
   # update srs attributes
   def create
-    @note = Note.find(params[:id])
+    @note = Note.find(params[:note_id])
+
+    # resets values to non nil if they are nil
+    # if (@note.easiness_factor == nil && @note.number_repetitions == nil)
+    #   @note.reset_spaced_repetition_data
+    # end
+    
     # test without update_attributes method
-    @note.process_recall_result(params["srs_update"].to_i)
+    @note.update_attributes(:srs_update => params["note"]["srs_update"].to_i)
+    @note.process_recall_result(@note.srs_update)
+    puts @note.next_repetition
   end
 
   private

@@ -237,11 +237,29 @@ Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_
 		<div class="answer" style="background-color: #ffeb16; height: 288px; width: 100%; text-align: center; font-size: 30px; vertical-align: middle; line-height: 250px; -webkit-box-shadow: 0px 5px 50px rgba(0,0,0,0.5);">
 			<strong><%= @note.answer %></strong>
 		</div>
-			<%= form_for @note, :url => srs_path, :method => :post do |f| %>
-				<%= f.radio_button :srs_update, "1" %>
-				<%= label :srs_update, "1" %>
-				<%= f.submit "Submit" %>
-			<% end %>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+			<div style="text-align: center; vertical-align: middle; line-height: 5px;">
+				<%= form_for @note, :url => note_srs_url(@note), :method => :post do |f| %>
+					<%= f.radio_button :srs_update, 5 %>
+					<%= label :srs_update, "5" %><br>
+					<%= f.radio_button :srs_update, 4 %>
+					<%= label :srs_update, "4" %><br>
+					<%= f.radio_button :srs_update, 3 %>
+					<%= label :srs_update, "3" %><br>
+					<%= f.radio_button :srs_update, 2 %>
+					<%= label :srs_update, "2" %><br>
+					<%= f.radio_button :srs_update, 1 %>
+					<%= label :srs_update, "1" %><br>
+					<%= f.radio_button :srs_update, 0 %>
+					<%= label :srs_update, "0" %><br>
+					<%= f.submit "Submit" %>
+				<% end %>
+			</div>
 
 		<div class="Info">
 			<h3>What happens now</h3>
