@@ -23,8 +23,8 @@ Rails.application.configure do
     domain: "localhost:3000",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "legitkevinnguyen@gmail.com",
-    password: "KrzAYUQTb95v"
+    user_name: "noteminders@gmail.com",
+    password: "mY9bgsbPdUMH"
   }
 
   # Print deprecation notices to the Rails logger.

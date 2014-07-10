@@ -12,6 +12,11 @@ class SrsController < ApplicationController
     #   @note.reset_spaced_repetition_data
     # end
 
+    # Handle when user clicks submit but forgets to click a radio button
+    # if !params["note"]["srs_update"]?
+    #   redirect_to 
+    # end
+
     # test without update_attributes method
     @note.update_attributes(:srs_update => params["note"]["srs_update"].to_i)
     @note.process_srs(@note.srs_update)

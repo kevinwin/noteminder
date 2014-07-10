@@ -1,6 +1,6 @@
 class UserNotifier < ActionMailer::Base
   add_template_helper(MailerHelper)
-  default :from => 'legitkevinnguyen@gmail.com'
+  default :from => 'noteminders@gmail.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def signup_email(user)

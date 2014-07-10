@@ -1,19 +1,190 @@
-<h1>NoteMinders</h1>
-Here are all the users
+<!doctype html>
+<html>
+	<head>
+		<title>NoteMinders - Forget about forgetting (with intelligent email/text reminders)</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://use.typekit.net/cvy2dnb.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" src="js/retina.js"></script> 
+		 	
+		 <meta name="apple-itunes-app" content="app-id=873639935"/>
+		 <meta name="google-site-verification" content="KcVdWrXppRuue9n-vcVGLHwa0qlDJ8xbWeIrK8tdlqo" />
+		<meta name="description" content="Notifyr lets you receive all iOS notifications on your Mac." />	
+		<script>
+				  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+				
+				  ga('create', 'UA-50488044-1', 'getnotifyr.com');
+				  ga('send', 'pageview');
+		</script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		
+		<!-- for Google -->
+		<meta name="description" content="Notifyr lets you receive all iOS notifications on your Mac." />
+		<meta name="keywords" content="notifications,push, mac, osx, ios" />
+		
+		<meta name="author" content="Joost van Dijk" />
+		<meta name="copyright" content="Joost van Dijk" />
+		<meta name="application-name" content="Notifyr" />
+		
+		<!-- for Facebook -->          
+		<meta property="og:title" content="Notifyr" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="http://getnotifyr.com/img/icon.png" />
+		<meta property="og:url" content="http://www.getnotifyr.com" />
+		<meta property="og:description" content="Notifyr lets you receive all iOS notifications on your Mac." />
+	</head>
 
-<% @users.each do |user| %>
-	<br>
-	<%= user.email %><br>
-	
-<%end%>
-<br>
-<%= link_to 'Create a new note.', "/notes/new" %>
-<br>
-<br>
-<div class="footer">
-		<% if user_signed_in? %>
-			<%= link_to 'Sign out.', destroy_user_session_path, :method => :delete %>
-		<% else %>
-			<%= link_to 'Sign in.', new_user_session_path %>
-		<% end %>
-	</div>
+	<body>
+		<div style="background-color: white;">
+		<div id="header">
+			<div class="header-wrapper">
+				<div class="name">
+					<img src="assets/notifyr_logo.svg.html" id="logo" alt="notifyr logo">
+					
+					<span id="notifyrName">NoteMinders</span>
+					<span>Accelerate learning through spaced repetition email/text reminders</span>
+				</div>
+			</div>
+
+			<div class="visual-wrapper">
+
+				<div class="headerVisual cf">
+					<div class="mac-container">
+						<img src="assets/mac.png" id="mac" alt="mac">
+						<div class="mac-screen">
+							<div class="mac-notification"></div>
+						</div>
+					</div>
+
+					<div class="iphone-container">
+						<img src="assets/iphone.png" id="iphone" alt="iphone">
+						<div class="iphone-screen"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div style="clear:both;"></div>
+		
+		<div class="wrapper">
+		<!--
+				<div class="comingsoon">
+				<h1>Coming soon</h1>
+				<form action="http://zebraa.createsend.com/t/t/s/tiirli/" method="post">
+					<input id="fieldEmail" name="cm-tiirli-tiirli" type="email" placeholder="Email me on release" required /><button type="submit">OK</button>
+					</form>
+				</div> -->
+			
+			<div class="download">
+				<a href="https://itunes.apple.com/us/app/notifyr-receive-ios-notifications/id873639935?l=nl&ls=1&mt=8" class="bttn ios" title="iOS App Store">iOS App Store</a>
+				<a href="http://getnotifyr.com/mac/" class="bttn prefs" title="Download OS X app">Download OS X app</a>
+				<p class="tagline">You'll need both.</p>
+			</div>
+			
+		</div>
+
+		<hr>
+		
+		<div class="columns-wrapper">
+			<img src="img/apps.png" class="right apps" alt="apps notifications">
+
+			<div class="left notification">
+				<h1>Notifications from <span style="border-bottom: 2px solid #fdb916; display: inline-block;height: 30px;">any</span>, third party, app</h1>
+				<p>You can keep your phone in your pocket and still know what’s going on. Stay up-to-date on your incoming WhatsApp messages, know when someone's calling you, or read any of the other notifications from any app on your iPhone.</p> <p>You can mute apps so you won't receive notifications from apps that are also running on your Mac.</p>
+			</div>
+		</div>
+		<hr>
+		
+		<div class="columns-wrapper">
+			<img src="img/bluetooth.png" class="left bluetooth" alt="bluetooth notifications">
+			<div class="right ble">
+				<h1>Bluetooth Low Energy</h1>
+				<p>Because Notifyr uses Bluetooth Low Energy, you can keep using Notifyr all day without it draining your battery.</p><p>Notifyr automatically reconnects whenever you are in range.</p>
+			</div>
+		</div>
+		<hr>
+		<div class="support-wrapper">
+			<h1>Compatible with</h1>
+			
+			<ul>
+				<li>
+					<img src="img/macbookair.png">
+					<h3>Macbook Air</h3>
+					<h5>2011 or newer</h5>
+				</li>
+				
+				<li>
+					<img src="img/macbookpro.png">
+					<h3>Macbook Pro</h3>
+					<h5>2012 or newer</h5>
+				</li>
+				
+				<li>
+					<img src="img/imac.png">
+					<h3>iMac</h3>
+					<h5>Late 2012 or newer</h5>
+				</li>
+				
+				<li>
+					<img src="img/macmini.png">
+					<h3>Mac mini</h3>
+					<h5>2011 or newer</h5>
+				</li>
+				
+				<li>
+					<img src="img/macpro.png">
+					<h3>Mac Pro</h3>
+					<h5>Late 2013 or newer</h5>
+				</li>
+			<ul>
+			
+			<p class="tagline" style="text-transform:none; font-size: 1.1em; font-weight: 500; margin-bottom: 4px">You'll need <span style="color:#6e6e6e">Mavericks</span> to receive iOS notifications and run Notifyr.</p>
+			 <p class="tagline" style="text-transform:none; font-size: 1.1em; font-weight: 500;">Or download the free <a href="http://getnotifyr.com/mac/">prefspanel</a> to check if your Mac is compatible.</p>
+		</div>
+		</div>
+		<div class="footer-wrapper">
+			<ul>
+				<li><a href="https://www.dropbox.com/sh/8hqwm4lwg6hq8zg/AACL1UOBT91hdZ-Jpa2BhdzZa" title="Presskit">Presskit</a></li>
+				<li><a href="mailto:noteminders@gmail.com?subject=Noteminders" title="Contact">Contact</a></li>
+				<li><a href="faq.html" title="Frequently Asked Questions">FAQ</a></li>
+			</ul>
+			<div class="credits">
+				Built with <span style="color:red">&hearts;</span> by <a href="http//www.facebook.com/meetkevinhungnguyen" title="Kevin Nguyen">Kevin Nguyen</a> & <a href="https://www.facebook.com/michael.le.37819" title="Michael Le">Michael Le</a><br><br>
+
+
+			<%= link_to 'Create a new note.', "/notes/new" %><br>
+			<br>
+			
+			
+					<% if user_signed_in? %>
+						<%= link_to 'Sign out.', destroy_user_session_path, :method => :delete %>
+					<% else %>
+						<%= link_to 'Sign in.', new_user_session_path %>
+					<% end %>
+					<br>
+					<div style="color:black;">Space filler</div>
+			</div>
+		</div>
+				<!-- Credit goes to Joost van dijk for the site design -->
+		<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0000/7247.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+
+
+
+
+
+
+	</body>
+</html>

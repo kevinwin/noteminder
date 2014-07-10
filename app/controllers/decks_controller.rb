@@ -2,7 +2,7 @@ class DecksController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :create]
 
 	def index
-		@decks = Deck.all
+		@decks = Deck.all.where(:user_id => current_user.id)
 	end
 
 	def new

@@ -107,7 +107,7 @@ Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_
 		a:hover { color: green; }
 		*/
 
-		
+
 
 		/***************************************************
 		****************************************************
@@ -240,36 +240,36 @@ Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-			<div style="text-align: center; vertical-align: middle; line-height: 5px;">
+			<div style="text-align: center; vertical-align: middle; line-height: 15px;">
 				<%= form_for @note, :url => note_srs_url(@note), :method => :post do |f| %>
 					<%= f.radio_button :srs_update, 5 %>
-					<%= label :srs_update, "5 ★★★★★" %><br>
+					<%= label :srs_update, "★★★★★" %><br>
 					<%= f.radio_button :srs_update, 4 %>
-					<%= label :srs_update, "4 ★★★★☆" %><br>
+					<%= label :srs_update, "★★★★☆" %><br>
 					<%= f.radio_button :srs_update, 3 %>
-					<%= label :srs_update, "3 ★★★☆☆" %><br>
+					<%= label :srs_update, "★★★☆☆" %><br>
 					<%= f.radio_button :srs_update, 2 %>
-					<%= label :srs_update, "2 ★★★☆☆" %><br>
+					<%= label :srs_update, "★★★☆☆" %><br>
 					<%= f.radio_button :srs_update, 1 %>
-					<%= label :srs_update, "1 ★☆☆☆☆" %><br>
+					<%= label :srs_update, "★☆☆☆☆" %><br>
 					<%= f.radio_button :srs_update, 0 %>
-					<%= label :srs_update, "0 ☆☆☆☆☆" %><br>
-					<%= f.submit "Submit" %>
+					<%= label :srs_update, "☆☆☆☆☆" %><br><br>
+					<%= f.submit "Submit", :style => 'width: 200px; border-radius: 4px; padding: 10px; border: #7716ff; background-color: #169fff; color: #ffeb16;' %>
 				<% end %>
 			</div>
 
 		<div class="Info">
 			<h3>What happens now</h3>
-			<p>From this point on, you'll receive email/text notifications when you need to study your note. Just rate the note's easiness factor on a scale from 0-5 (5 being very easy to remember, 0 equals no recall) </p>
+			<p>From this point on, you'll receive email/text notifications when you need to study your note. Just rate the note's easiness factor on a scale from 0-5 stars (5 = perfect response, 4 = correct response after hesitation, 3 = correct response recalled with serious difficulty, 2 = incorrect response where correct one seemed easy to recall, 1 = incorrect response; the correct one remembered, 0 = complete) </p>
 		</div>
     </div>
 
     	<%= link_to 'View your note at Noteminders', note_url(@note) %>
+			
 		<!-- Change this link to dashboard later -->
     	<%= link_to 'Manage your notes here.', 'http://localhost:3000/notes' %>
+		<!-- introduces random variation to avoid auto trimming -->
+    	<div style="color: white;"><%= @note.question %></div>
 	<!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
 	<table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
 	<tr>
