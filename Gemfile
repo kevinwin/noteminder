@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'dbc'
 
+# makes setting up static pages a breeze
+gem 'high_voltage'
+
 # gem needed for Heroku deployment	
 gem 'rails_12factor', group: :production
 
