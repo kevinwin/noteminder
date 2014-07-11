@@ -1,37 +1,86 @@
-<div class="container">
-		<h1 class="new_note_header">create a new note.</h1>
-
-
-		<%= form_for @note do |f|  %> 
-			<div id="deckSet">
-			<br>
-				<div id= "deck_select">
-					<%= f.select :deck_id, options_from_collection_for_select(@decks, 'id', 'title', :selected => @note.deck_id), :include_blank => true, :prompt => 'select an existing deck' %> or
-					<span><a href="javascript:;" id="addNewDeck">add a new deck.</a></span>
-				</div>
-					
-			</div>
-			
-			<br>
-
-			
-			<%= f.text_area :question, :placeholder => 'Question', :rows => '12', :cols => '220' %>
-			<br>
-			<div class="row"><div class="col-xs-1"></div><hr class="col-xs-9"style="border-top: dashed 3px;"/></div>
-			
-			<%= f.text_area :answer, :placeholder => "Answer", :rows => '12', :cols => '220'%> 
-			<br>
-			
-			
-			<div class="row">
-			<div class="col-xs-3"></div>
-			<div class="submit col-xs-6 btn"><%= f.submit "Create"%></div>
-			</div>
-		<%end%>
-
-			
-
-		<div class="hide" id="new_decks_form">
-		  <%= render partial: "deck_field", locals: {note: false} %>
+<link href="/assets/form.css" media="screen" rel="stylesheet" />
+<div id="wrapper">
+	
+	<!-- <div id="alert">
+				<a class="alert" href="#alert">Cool alert!</a>
+	</div> -->
+	<% flash.each do |key, value| %>
+	<div class="<%= flash_class(key) %>">
+		<a href="#" data-dismiss="alert" class="close">×</a>
+		<%= value %>
+	</div>
+	<% end %>
+	<h1 class="new_note_header">create a new note.</h1>
+	<a><%= link_to 'Dashboard', decks_path, {:class => "smallbttn ios", :style => 'float: right; vertical-align: text-top; position: fixed; top: 25px; right: 270px; padding-left: 25px; padding-bottom: 40px; text-decoration: none;'} %></a>
+	<a><%= link_to 'Sign out.', destroy_user_session_path, {:method => :delete, :class => "smallbttn prefs", :style => 'float: right; vertical-align: text-top; position: fixed; top: 25px; right: 130px; padding-left: 30px; padding-bottom: 40px; text-decoration: none;'} %></a>
+	<%= form_for @note do |f|  %>
+	<div id="deckSet">
+		<br>
+		<div id= "deck_select">
+			<%= f.select :deck_id, options_from_collection_for_select(@decks, 'id', 'title', :selected => @note.deck_id), :include_blank => true, :prompt => 'select an existing deck', :style => 'float: left;' %> or
+			<span><a href="javascript:;" id="addNewDeck">add a new deck.</a></span>
 		</div>
-</div>
+		
+	</div>
+	
+	<br>
+	
+	<%= f.text_area :question, :placeholder => 'Question', :rows => '12', :cols => '200', :style => 'width: 100%; max-width: 985px;' %>
+	<br>
+	<div class="row"><div class="col-xs-1"></div><hr class="col-xs-9"style="border-top: dashed 3px;"/></div>
+	
+	<%= f.text_area :answer, :placeholder => "Answer", :rows => '12', :cols => '200', :style => 'width: 100%; max-width: 985px;'%>
+	<br>
+	
+	
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div id="formsubmitbutton" class="submit col-xs-6 btn"><%= f.submit "Create", :onclick => "ButtonClicked()", :style => "margin-bottom: 20px;"%></div>
+		<div id="buttonreplacement" style="display: none; text-align: center; height: 200px;" class="col-xs-6">
+			<img src="http://willmaster.com/images/preload.gif" align="middle" alt="loading...">
+		</div>
+
+		<script type="text/javascript">
+		/*
+		Replacing Submit Button with 'Loading' Image
+		Version 2.0
+		December 18, 2012
+		Will Bontrager Software, LLC
+		http://www.willmaster.com/
+		Copyright 2012 Will Bontrager Software, LLC
+		This software is provided "AS IS," without
+		any warranty of any kind, without even any
+		implied warranty such as merchantability
+		or fitness for a particular purpose.
+		Will Bontrager Software, LLC grants
+		you a royalty free license to use or
+		modify this software provided this
+		notice appears on all copies.
+		*/
+		function ButtonClicked()
+		{
+		document.getElementById("formsubmitbutton").style.display = "none"; // to undisplay
+		document.getElementById("buttonreplacement").style.display = ""; // to display
+		return true;
+		}
+		var FirstLoading = true;
+		function RestoreSubmitButton()
+		{
+		if( FirstLoading )
+		{
+		FirstLoading = false;
+		return;
+		}
+		document.getElementById("formsubmitbutton").style.display = ""; // to display
+		document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
+		}
+		// To disable restoring submit button, disable or delete next line.
+		document.onfocus = RestoreSubmitButton;
+		</script>
+		
+		<%end%>
+		
+		<div class="hide" id="new_decks_form">
+			<%= render partial: "deck_field", locals: {note: false} %>
+		</div>
+	</div>

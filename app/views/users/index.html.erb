@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html style="margin-top: -30px;">
 	<head>
 		<title>NoteMinders - Forget about forgetting (with intelligent email/text reminders)</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -137,16 +137,19 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<%= f.submit "Sign in.", :class => "bttn prefs"%>
+									<%= f.submit "Sign in.", :class => "btn"%>
 									<% end %>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<a onmouseover="" style="cursor: pointer; text-decoration: none;" class="bttn prefs" data-toggle="modal" data-target="#myModal2">
-					Sign in. <up class=""></up>
-					</a>
+					<% if user_signed_in? %>
+						<%= link_to 'Sign out.', destroy_user_session_path, :method => :delete, :class => "bttn prefs" %>
+					<% else %>
+						<a onmouseover="" style="cursor: pointer; text-decoration: none;" class="bttn prefs" data-toggle="modal" data-target="#myModal2">
+						Sign in. <up class=""></up>
+						</a>
+					<% end %>
 					
 					
 					

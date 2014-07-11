@@ -3,9 +3,12 @@ class NotesController < ApplicationController
 
 	def index
 		@notes = Note.all
+		
 	end
 
 	def new
+		# flash[:notice] = "Note was successfully created"
+		
 		@note = Note.new
 		set_deck
 		# @user.decks.build
@@ -26,6 +29,7 @@ class NotesController < ApplicationController
 	end
 
 	def create
+			
 			@note = Note.new(note_params)
 			# initializes note with default srs attributes
 			@note.update_attributes(:easiness_factor => 2.5, :number_repetitions => 0, :quality_of_last_recall => nil, :next_repetition => nil, :repetition_interval => nil, :last_studied => nil)
@@ -42,9 +46,11 @@ class NotesController < ApplicationController
 			end
 
 		if @note.save
-			redirect_to notes_path, :alert => "Your note was successfully created."
+			flash[:success] = "Wahoo! You created a note."
+			redirect_to :action => :new
 		else
 			set_deck
+			flash[:error] = "Try again. Please enter all fields to create a note."
 			render :new
 		end
 

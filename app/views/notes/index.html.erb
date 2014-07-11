@@ -1,8 +1,7 @@
 <h1><span>Here are all your notes.</span></h1><br><br>
-(Deck Title | q | a) <br><br>	
-
+(Deck Title | q | a) <br><br>
 <% @notes.each do |note| %>
-	<%= note.deck[:title] %> | <%= note.question %> | <%= note.answer %> <br>
+<%= note.deck[:title] %> | <%= note.question %> | <%= note.answer %> <br>
 <% end %>
-<br>	
+<br>
 <%= link_to 'Create another new note.', "/notes/new" %>

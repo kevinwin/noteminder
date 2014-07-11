@@ -15,7 +15,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'users#index'
+  # root 'users#index'
+
+ authenticated :user do
+  devise_scope :user do
+    root to: "notes#new", :as => "note_creation"
+  end
+end
+
+unauthenticated do
+  devise_scope :user do
+    root to: 'users#index', :as => "unauthenticated"
+  end
+end
 
   
 
