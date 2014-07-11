@@ -1,5 +1,70 @@
-Just updated your note!<br>
-
-Note question: <%= @note.question %><br>
-Note answer: <%= @note.answer %><br>
-Next repetition: <%= @note.next_repetition %>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Created Note <%= @note.question %> | <%= @note.answer %></title>
+		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+		<link rel="stylesheet" href="assets/createstyle.css" type="text/css" media="screen" />
+		<link rel="stylesheet" type="text/css"
+			media="screen and (min-width : 321px)" href="assets/small.css" />
+			<link rel="stylesheet" type="text/css"
+				media="screen and (min-width : 600px)" href="assets/smallish.css" />
+				<link rel="stylesheet" type="text/css"
+					media="screen and (min-width : 768px)" href="assets/medium.css" />
+					<link rel="stylesheet" type="text/css"
+						media="screen and (min-width : 1024px)" href="assets/big.css" />
+						<link rel="stylesheet" type="text/css"
+							media="screen and (min-width : 1200px)" href="assets/massive.css" />
+							<!--[if lt IE 9]>
+							<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+							<link rel="stylesheet" type="text/css" href="small.css" />
+							<link rel="stylesheet" type="text/css" href="smallish.css" />
+							<link rel="stylesheet" type="text/css" href="medium.css" />
+							<link rel="stylesheet" type="text/css" href="big.css" />
+							<link rel="stylesheet" type="text/css" href="ie6-8.css" />
+							<link rel="stylesheet" type="text/css" href="ie6-7.css" />
+							<![endif]-->
+							<!--[if IE 6]>
+								<link rel="stylesheet" type="text/css" href="ie6.css" />
+							<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+							<script src="js/ie-image-switcher.js"></script>
+							<![endif]-->
+							<link rel="icon" href="favicon.ico" type="image/x-icon" />
+							<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
+							
+						</head>
+						<body>
+							
+								<header style="height: 100%; width: 100%; text-align: center; vertical-align: middle;">
+									<nav style="text-align: center; vertical-align: middle; margin: auto;">
+										<!-- <ul> -->
+										<!-- <li><a href="index.html#about">About</a></li>
+										<li><a href="index.html#speakers">Speakers</a></li>
+										<li><a href="index.html#schedule">Schedule</a></li>
+										<li><a href="index.html#travel">Location</a></li> -->
+										<!-- <li><a href="http://p0wer0f1.posterous.com/">Blog</a></li>
+										<li><a href="media-partners.html">Partners</a></li> -->
+										<!-- </ul> -->
+									<h2 class="sold-out">Next repetition:<%= @note.next_repetition %> </h2>
+									</nav>
+									
+									<section class="vevent">
+										
+										
+										
+										<div style="text-align: center; vertical-align: middle; margin: auto; padding-bottom: 100px;">
+											<h2>Question: <strong class="twitter-search"><%= @note.question %></strong></h2>
+											<h2>Answer: <strong class="twitter-search"><%= @note.answer %></strong></h2>
+										
+										
+										</div>
+										
+										
+									</section>
+								</header>
+							
+							
+							<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+							<script src="assets/add-iframe.js"></script>
+						</body>
+					</html>

@@ -35,11 +35,11 @@ class NotesController < ApplicationController
 			@note.update_attributes(:easiness_factor => 2.5, :number_repetitions => 0, :quality_of_last_recall => nil, :next_repetition => nil, :repetition_interval => nil, :last_studied => nil)
 			# # are they creating a new deck, or adding to a preexisting deck? 
 			# # create a new deck
+		
 			if params["note"]["deck_id"] == nil
-				@deck = Deck.create()
-				@deck.update_attributes(:title => params["deck_title"] ) 
-				@deck.update_attributes(:user_id => current_user.id)
+				@deck = Deck.create(title: params["deck_title"], user_id: current_user.id)
 				@note.deck_id = @deck.id
+				
 			# add to an existing deck
 			else 
 
