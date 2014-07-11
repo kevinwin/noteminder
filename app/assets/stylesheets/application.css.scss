@@ -26,7 +26,7 @@ html, body {
 
 }
 
-h1 {
+h1.new_note_header {
 	font-size: 60px;
 	margin: 0;
 	padding: 0;
@@ -43,6 +43,10 @@ hr {
 
 .hide {
 	display: none;
+}
+
+a.bttn.ios:hover {
+	color: black;
 }
 
 .submit {

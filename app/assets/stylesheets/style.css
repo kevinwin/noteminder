@@ -107,6 +107,7 @@ html, body {
 .header-wrapper {
 	max-width: 1000px;
 	margin: 0 auto;
+	padding-top: 50px;
 	padding-right:20px;
 	padding-left: 20px;
 	clear: both;
@@ -133,12 +134,13 @@ hr {
 /* HEADER */
 
 #header {
-	background:-webkit-linear-gradient(#f9af00 0%, #ffbd1f 100%);
-	background:-moz-linear-gradient(#f9af00 0%, #ffbd1f 100%);
-	background:-o-linear-gradient(#f9af00 0%, #ffbd1f 100%);
-	background:linear-gradient(#f9af00 0%, #ffbd1f 100%);
-	border-bottom: 1px solid #ecb42c;
+	background:-webkit-linear-gradient(#ffeb16 0%, #ffeb16 100%);
+	background:-moz-linear-gradient(#ffeb16 0%, #ffeb16 100%);
+	background:-o-linear-gradient(#ffeb16 0%, #ffeb16 100%);
+	background:linear-gradient(#ffeb16 0%, #ffeb16 100%);
+	border-bottom: 1px solid #ffeb16;
 	margin-bottom: 180px;
+
 }
 
 #logo {
@@ -152,9 +154,10 @@ hr {
 }
 
 .name span{
+	font-family: "proxima-nova";
 	position:relative;
 	top:-6px;
-	font-size: 1.5em;
+	font-size: 1.6em;
 	padding-top: 40px;
 	font-weight:300;
 
@@ -186,6 +189,7 @@ hr {
 	display: block;
 	width: 1155px;
 	height: 680px;
+	
 	overflow: hidden;
 	margin-left:-266px;
 	margin-bottom: -40px;
@@ -211,7 +215,7 @@ hr {
 }
 
 .mac-notification {
-	background: url('../img/notify.png') no-repeat;
+	background: url('../assets/notify_shadow.png') no-repeat;
 	width: 379px;
 	height: 120px;
 	display: block;
@@ -271,7 +275,7 @@ hr {
 }
 
 .ios {
-	margin-right:10px;
+	/*margin-right:10px;*/
 	border: 2px solid #febb1b;
 }
 
@@ -347,8 +351,9 @@ hr {
 	margin-bottom:60px;
 }
 
-h1{
+h1 {
 	font-size: 2em;
+
 	font-weight: 600;
 	margin-bottom: 30px;
 }
