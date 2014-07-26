@@ -73,7 +73,7 @@ class Note < ActiveRecord::Base
 
     #checks once-a-day if note is scheduled to recall. If so, deliver the note.
     # scheduler.every '1d' do#, :last_at => Time.now + 1 * 3600 do
-    scheduler.every '1m' do
+    scheduler.every '1d' do
       if self.scheduled_to_recall?
         UserNotifier.noteminder(self).deliver
       end

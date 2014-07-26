@@ -3,7 +3,7 @@
 #### July 1, 2014
 
 
-## Overview
+#### Overview
 Noteminder is a Ruby on Rails app that allows people to create notes and 
 have them sent back via email/text right when they need to review them.
 The app uses a Spaced Repetition gem, background process, chron jobs, and sms messaging through (twilio and rr)
@@ -21,14 +21,14 @@ spaced repetition and email/text integration because email/phones are natural ex
 -Spaced repetition algorithm (Supermemo 2)
 -Dashboard for note organization (compile, delete, create, archive, and share decks)
 
-Future features
+#### Future features
 Note synchronization
 Contextual tracking
 
 
-## Design
+#### Design
 A minimalist design with strong contrasting elements.
 
-## Code
 
-nav
+
+
