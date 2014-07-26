@@ -15,7 +15,7 @@
  */
 
 @import "bootstrap-sprockets";
-@import "bootstrap-custom";
+@import "bootstrap";
 @import "bootstrap/alerts";
 
 html, body {
