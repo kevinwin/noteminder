@@ -3,10 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, :only => [:index, :create, :destroy, :edit, :new, :show]
   resources :decks, :only => [:create, :index, :destroy, :edit, :new, :show]
-  resources :notes, :only => [:create, :index, :destroy, :edit, :new, :show]
+  resources :notes, :only => [:create, :index, :destroy, :update, :new, :show]
 
   resources :notes do
     resources :srs, :only => [:index, :create]
+  end
+
+  # access to notes via decks
+  resources :decks do
+    resources :notes, :only => [:index, :destroy, :edit]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

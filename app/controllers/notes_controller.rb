@@ -3,7 +3,8 @@ class NotesController < ApplicationController
 
 	def index
 		@notes = Note.all
-		
+		@note = Note.new
+		set_deck
 	end
 
 	def new
@@ -19,8 +20,11 @@ class NotesController < ApplicationController
 		@note = Note.find(params[:id])
 	end
 
-	def edit
+	def update
 		@note = Note.find(params[:id])
+		@notes = Note.all.map { |n| [n.question, n.answer] }
+		@note.update(note_params)
+		render decks_path
 	end
 
 	def destroy

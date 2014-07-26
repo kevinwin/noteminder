@@ -1,9 +1,118 @@
-<h1>Hi.</h1>
-<p> Here's a list of all your decks</p>
-<br>
+<div class="container wrapper">
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		$("a.button").click(function(){
+			var deck = $(this).attr("id");
+			console.log($(this).attr("id"))
+			$("div." + deck).toggle();
+			return false;
+		});
+		});
+		</script>
+	</head>
+	<h1>Hi.</h1>
+	<p> Welcome to the dashboard! You can view your decks and notes here.<br> You will soon be able to edit, delete, and compile items as well. </p>
+	<br>
+	<%= form_tag decks_path, :method => 'GET' do %>
+	<%= text_field_tag 'q', params[:q] %>
+	<%= submit_tag 'SEARCH' %>
+	<% end %>
+	
 
-<% @decks.each do |deck| %>
-	<%= deck.title %><br>
-<%end%>
-<br>
-<%= link_to 'Create a new note.', "/notes/new" %>
+	<br>
+	<% @notes.each do |note| %>
+	<%= note.deck.title %> <%= note.question %> <%= note.answer %> 
+	<% end %>
+	<br>
+	
+	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="width: 200px;">Create another new note.</button>
+	<br><br>
+	<% @decks.each do |deck| %>
+	<%= link_to deck.title, "#", id: "deck#{deck.id}", class: "button btn btn-info"%><br><br>
+	<div class="deck<%=deck.id%>">
+		<% deck.notes.all.each do |note| %>
+		<%= note.question %> | <%= note.answer %>
+		<%= link_to image_tag("bin2.png", :class => "trash btn btn-primary btn-lg", :style => 'margin-right: 20px;'), deck_path(note), :method => :delete %>
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#edit_modal_<%= note.id %>"><%= link_to image_tag("pen.png") %></button><br><br>
+		<div class="modal fade" id="edit_modal_<%= note.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">Edit Note <%= note.id %></h4>
+					</div>
+					<div class="modal-body">
+						<%= form_for note do |f|  %>
+						<div id="deckSet">
+							<br>
+							<div id= "deck_select">
+								<%= f.select :deck_id, options_from_collection_for_select(@decks, 'id', 'title', :selected => @note.deck_id), :select => deck %>
+							</div>
+						</div>
+						<br>
+						
+						<%= f.text_area :question, :rows => '10', :cols => '100' %>
+						<br>
+						<div class="row"><div class="col-xs-1"></div><hr class="col-xs-9"style="border-top: dashed 3px;"/></div>
+						
+						<%= f.text_area :answer, :rows => '10', :cols => '100'%>
+						<br>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<%= f.submit "Edit", data: { disable_with: "Saving..." }%>
+						<%end%>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%end%>
+	</div>
+	<%end%>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel">New Note</h4>
+				</div>
+				<div class="modal-body">
+					<%= form_for @note do |f|  %>
+					<div id="deckSet">
+						<br>
+						<div id= "deck_select">
+							<%= f.select :deck_id, options_from_collection_for_select(@decks, 'id', 'title', :selected => @note.deck_id), :include_blank => true, :prompt => 'select an existing deck' %> or
+							<button type="button" class="btn btn-default"><span><a href="javascript:;" id="addNewDeckmodal">add a new deck.</a></span>
+							<div class="hide" id="new_decks_form">
+								<%= render partial: "deck_field", locals: {note: false} %>
+							</div>
+							<div id="deck_select">
+								<span><a href="javascript:;" id="deck_select"></button>
+								</div>
+								
+							</div>
+							
+							<br>
+							
+							<%= f.text_area :question, :placeholder => 'Question', :rows => '10', :cols => '105' %>
+							<br>
+							<div class="row"><div class="col-xs-1"></div><hr class="col-xs-9"style="border-top: dashed 3px;"/></div>
+							
+							<%= f.text_area :answer, :placeholder => "Answer", :rows => '10', :cols => '105'%>
+							<br>
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<%= f.submit "Create", data: { disable_with: "Creating" }%>
+							<%end%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

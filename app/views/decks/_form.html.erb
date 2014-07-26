@@ -1,0 +1,29 @@
+<%= form_for note do |f|  %>
+            <div id="deckSet">
+              <br>
+              <div id= "deck_select">
+                <%= f.select :deck_id, options_from_collection_for_select(@decks, 'id', 'title', :selected => note.deck) %> or
+                <button type="button" class="btn btn-default"><span><a href="javascript:;" id="addNewDeckmodal">add a new deck.</a></span>
+                <div class="hide" id="new_decks_form">
+                  <%= render partial: "deck_field", locals: {note: false} %>
+                </div>
+                  <div id="deck_select">
+                  <span><a href="javascript:;" id="deck_select"></button>
+                  </div>
+                  
+                  <%= f.text_area :question, :placeholder => note.question, :rows => '10', :cols => '105' %>
+                  <br>
+                  <div class="row"><div class="col-xs-1"></div><hr class="col-xs-9"style="border-top: dashed 3px;"/></div>
+                  
+                  <%= f.text_area :answer, :placeholder => note.answer, :rows => '10', :cols => '105'%>
+                </div>
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <%end%>
+                  
+                  
+                </div>
+              </div>
+            </div>

@@ -19,7 +19,15 @@ class SrsController < ApplicationController
 
     # test without update_attributes method
     @note.update_attributes(:srs_update => params["note"]["srs_update"].to_i)
+    
+    # updates srs attributes based on user feedback.
     @note.process_srs(@note.srs_update)
+
+    # Demo line. Update the most recently created note so that next_repetition is set to today. 
+    # After touch emails should be sent every minute.
+    @note.update_attributes(:next_repetition => Date.today)
+    
+    # Trigger for checking if Note should be sent after feedback
     @note.touch
   end
 

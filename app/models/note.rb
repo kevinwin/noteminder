@@ -13,7 +13,11 @@ class Note < ActiveRecord::Base
 	after_create :send_note_created_email
   after_touch :send_noteminder
 
+  def self.filter(query)
+    return Note.all if query == nil || query == ""
 
+    Note.all.where('question LIKE "%#{query}%"')
+  end
 	
 
     def process_srs(quality_of_recall)
@@ -67,8 +71,9 @@ class Note < ActiveRecord::Base
     # Initializes the scheduler
     scheduler = Rufus::Scheduler.new
 
-    #checks if note is scheduled to recall. If so, deliver the note.
-    scheduler.every '1m' do#, :last_at => Time.now + 1 * 3600 do
+    #checks once-a-day if note is scheduled to recall. If so, deliver the note.
+    # scheduler.every '1d' do#, :last_at => Time.now + 1 * 3600 do
+    scheduler.every '1m' do
       if self.scheduled_to_recall?
         UserNotifier.noteminder(self).deliver
       end
