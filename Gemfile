@@ -5,9 +5,8 @@ gem 'dbc'
 # makes setting up static pages a breeze
 gem 'high_voltage'
 
-# gem needed for Heroku deployment	
-gem 'rails_12factor', group: :production
-
+gem 'autoprefixer-rails'
+  
 gem 'nested_form'
 
 gem 'rufus-scheduler'
@@ -25,7 +24,7 @@ gem 'tzinfo'
 gem 'binding_of_caller'
 
 # Twitter bootstrap (useful for Media queries + Javascript)
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.2.0'
 	
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -44,10 +43,8 @@ group :production do
 end
 
 
-
-
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '4.0.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
