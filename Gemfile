@@ -12,13 +12,6 @@ gem 'nested_form'
 
 gem 'rufus-scheduler'
 
-group :development do
-	gem 'better_errors'
-	gem 'jazz_hands'
-	gem 'quiet_assets'
-	gem 'puma'
-end
-
 gem 'devise'
 
 gem 'paperclip'
@@ -37,10 +30,21 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
+group :development, :test do
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'jazz_hands'
+  gem 'quiet_assets'
+  gem 'puma'
+end
 
-#Postgres gem for heroku
-gem 'pg', group: :production
+group :production do
+  gem 'pg' #Postgres gem for heroku
+  gem 'rails_12factor'
+end
+
+
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
