@@ -150,7 +150,7 @@ hr {
 }
 
 .name span{
-	font-family: "proxima-nova";
+	font-family: "proxima-nova", Oswald, Museo-Slab, sans-serif;
 	position:relative;
 	top:-6px;
 	font-size: 1.6em;
