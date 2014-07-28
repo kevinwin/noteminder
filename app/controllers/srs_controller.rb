@@ -34,6 +34,6 @@ class SrsController < ApplicationController
   private
 
   def note_params
-      params.require(:note).permit(:id, :srs_update, note_id)
+      params.require(:note).permit(:id, :srs_update, :note_id)
   end
 end
