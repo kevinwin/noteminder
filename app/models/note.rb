@@ -21,8 +21,9 @@ class Note < ActiveRecord::Base
 	
 
   def process_srs(quality_of_recall)
-    return if quality_of_recall >= 0
-    return if quality_of_recall <= 5
+    return unless quality_of_recall >= 0
+    return unless quality_of_recall <= 5
+    
     return unless number_repetitions.present?
     # ::DBC.require(quality_of_recall >= 0)
     # ::DBC.require(quality_of_recall <= 5)
