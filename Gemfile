@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'dbc'
+# gem 'pry'
 
 # makes setting up static pages a breeze
 gem 'high_voltage'
