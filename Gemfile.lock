@@ -54,7 +54,6 @@ GEM
     coffee-script-source (1.7.1)
     columnize (0.8.9)
     coolline (0.4.4)
-    dbc (2.0.0)
     debug_inspector (0.0.2)
     debugger (1.6.8)
       columnize (>= 0.3.1)
@@ -227,7 +226,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
-  dbc
   devise
   high_voltage
   jazz_hands
