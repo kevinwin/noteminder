@@ -18,7 +18,7 @@ class SrsController < ApplicationController
     # end
 
     # test without update_attributes method
-    @note.update_attributes(:srs_update => params["note"]["srs_update"].to_i)
+    @note.update(:srs_update => params["note"]["srs_update"].to_i)
     
     # updates srs attributes based on user feedback.
     @note.process_srs(@note.srs_update)
