@@ -20,11 +20,16 @@ class Note < ActiveRecord::Base
   end
 	
 
-    def process_srs(quality_of_recall)
-    ::DBC.require(quality_of_recall >= 0)
-    ::DBC.require(quality_of_recall <= 5)
-    ::DBC.require(easiness_factor)
-    ::DBC.require(number_repetitions)
+  def process_srs(quality_of_recall)
+    return if quality_of_recall >= 0
+    return if quality_of_recall <= 5
+    return unless number_repetitions.present?
+    # ::DBC.require(quality_of_recall >= 0)
+    # ::DBC.require(quality_of_recall <= 5)
+    # ::DBC.require(easiness_factor)
+    return unless easiness_factor.present?
+
+    # ::DBC.require(number_repetitions)
       
     if quality_of_recall < 3
       self.update_attributes(:number_repetitions => 0)
