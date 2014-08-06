@@ -82,4 +82,5 @@ class Note < ActiveRecord::Base
 
   def calculate_interval
     (self.next_repetition - Date.today).to_i
+  end
 end
