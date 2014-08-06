@@ -86,3 +86,8 @@ gem 'spring',        group: :development
 # Sidekiq for background processing
 gem 'sidekiq'
 
+# ramp up worker activity when appropriate and shut down if not in use
+
+gem 'sinatra', require: false
+gem 'slim'
+

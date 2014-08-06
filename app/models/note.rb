@@ -11,7 +11,7 @@ class Note < ActiveRecord::Base
   validates :question, uniqueness: {:scope => :deck_id}
   validates :answer, uniqueness: {:scope => :deck_id}
 	after_create :send_note_created_email
-  after_touch :send_noteminder
+  # after_touch :send_noteminder
 
   def self.filter(query)
     return Note.all if query == nil || query == ""
@@ -80,4 +80,6 @@ class Note < ActiveRecord::Base
     end
   end
 
+  def calculate_interval
+    (self.next_repetition - Date.today).to_i
 end

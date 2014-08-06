@@ -1,0 +1,6 @@
+development:
+  GMAIL_USERNAME: noteminders@gmail.com
+  GMAIL_PASSWORD: mY9bgsbPdUMH
+production:
+  GMAIL_USERNAME: noteminders@gmail.com
+  GMAIL_PASSWORD: mY9bgsbPdUMH

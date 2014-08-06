@@ -26,9 +26,10 @@ class SrsController < ApplicationController
     # Demo line. Update the most recently created note so that next_repetition is set to today. 
     # After touch emails should be sent every minute.
    
-    
+    UserNotifierWorker.perform_async(@note.id)
+
     # Trigger for checking if Note should be sent after feedback
-    @note.touch
+    # @note.touch
   end
 
   private

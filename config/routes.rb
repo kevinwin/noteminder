@@ -1,9 +1,13 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
   devise_for :users
   resources :users, :only => [:index, :create, :destroy, :edit, :new, :show]
   resources :decks, :only => [:create, :index, :destroy, :edit, :new, :show]
   resources :notes, :only => [:create, :index, :destroy, :update, :new, :show]
+
+  mount Sidekiq::Web, at: '/sidekiq'
 
   resources :notes do
     resources :srs, :only => [:index, :create]
