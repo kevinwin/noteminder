@@ -81,6 +81,7 @@ GEM
     high_voltage (2.2.1)
     hike (1.2.3)
     hirb (0.7.2)
+    hirefire-resource (0.3.3)
     i18n (0.6.11)
     jazz_hands (0.5.2)
       awesome_print (~> 1.2)
@@ -251,6 +252,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   high_voltage
+  hirefire-resource
   jazz_hands
   jbuilder (~> 2.0)
   jquery-rails

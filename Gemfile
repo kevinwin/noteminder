@@ -4,6 +4,8 @@ ruby '2.1.1'
 
 # gem 'pry'
 
+
+
 # makes setting up static pages a breeze
 gem 'high_voltage'
 
@@ -90,4 +92,7 @@ gem 'sidekiq'
 
 gem 'sinatra', require: false
 gem 'slim'
+
+# integrates hirefire with app
+gem "hirefire-resource"
 
