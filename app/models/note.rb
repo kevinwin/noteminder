@@ -52,6 +52,10 @@ class Note < ActiveRecord::Base
     self.update_attributes(:last_studied => Date.today)
   end
 
+  def calculate_interval
+    (self.next_repetition - Date.today).to_i
+  end
+
 
   protected
 
@@ -80,7 +84,5 @@ class Note < ActiveRecord::Base
     end
   end
 
-  def calculate_interval
-    (self.next_repetition - Date.today).to_i
-  end
+  
 end
