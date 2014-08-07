@@ -20,8 +20,8 @@ class UserNotifier < ActionMailer::Base
 
   def noteminder(note_id)
     @note = Note.find(note_id)
-    @deck = note.deck
-    @user = note.deck.user
+    @deck = @note.deck
+    @user = @note.deck.user
     mail(:to => @user.email, :subject => "A Noteminder for '#{@deck.title}'")
   end
 end
