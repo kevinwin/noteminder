@@ -246,17 +246,17 @@ Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_
 			<div style="text-align: center; vertical-align: middle; line-height: 5px;">
 				<%= form_for @note, :url => note_srs_url(@note), :method => :post do |f| %>
 					<%= f.radio_button :srs_update, 5 %>
-					<%= label :srs_update, "5" %><br>
+					<%= label :srs_update, "★★★★★" %><br>
 					<%= f.radio_button :srs_update, 4 %>
-					<%= label :srs_update, "4" %><br>
+					<%= label :srs_update, "★★★★☆" %><br>
 					<%= f.radio_button :srs_update, 3 %>
-					<%= label :srs_update, "3" %><br>
+					<%= label :srs_update, "★★★☆☆" %><br>
 					<%= f.radio_button :srs_update, 2 %>
-					<%= label :srs_update, "2" %><br>
+					<%= label :srs_update, "★★☆☆☆" %><br>
 					<%= f.radio_button :srs_update, 1 %>
-					<%= label :srs_update, "1" %><br>
+					<%= label :srs_update, "★☆☆☆☆" %><br>
 					<%= f.radio_button :srs_update, 0 %>
-					<%= label :srs_update, "0" %><br>
+					<%= label :srs_update, "☆☆☆☆☆" %><br>
 					<%= f.submit "Submit" %>
 				<% end %>
 			</div>
