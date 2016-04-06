@@ -1,7 +1,7 @@
 ## Noteminder
 ## Created by Kevin Nguyen & Michael Le
 #### July 1, 2014
-
+<img src="https://dl.dropboxusercontent.com/spa/zhnp22due95y7zs/jtu3y5mz.png" alt="screenshot of Noteminders" />
 
 #### Overview
 Noteminder is a Ruby on Rails app that allows people to create notes and 
